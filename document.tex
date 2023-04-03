@@ -1,0 +1,197 @@
+\documentclass[german,a4paper,12pt]{article}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\footnotesize}{\normalsize}
+\newcommand{\doctitle}{Dokumententitel}
+\newcommand{\doctype}{Dokumententyp}
+\newcommand{\docauthor}{Dokumentenautor}
+\newcommand{\docauthorid}{Matrikelnummer}
+\usepackage{nameref}
+\makeatletter
+\newcommand*{\sectionname}{\@currentname}
+\makeatother
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{acronym,array,blindtext,caption,csquotes,enumitem,float,graphicx,parskip,pdfpages,tikz}
+\usepackage[
+	backend=biber,
+	bibwarn=true,
+	bibencoding=utf8,
+	sorting=none,
+	citestyle=verbose,
+	style=numeric,
+]{biblatex}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+\bibliography{literature.bib}
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\lfoot{\doctype~-~\docauthorid}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\lhead{\raisebox{5pt}{\nouppercase{\leftmark}}}
+\rfoot{\thepage}
+\rhead{\includegraphics[width=20pt]{img/util/logo-small.png}}
+\setlength{\headheight}{25pt}
+\setlength{\headwidth}{427pt}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{15pt}
+% \setlength{\footnotesep}{25pt}
+\usepackage[bottom, perpage]{footmisc}
+\usepackage[onehalfspacing]{setspace}\onehalfspacing
+\usepackage{scrextend}\deffootnote[0em]{0em}{0em}{\textsuperscript{\thefootnotemark}\,}
+\usepackage{tablefootnote}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage[margin=3cm]{geometry}
+\usepackage[
+	colorlinks,
+	pdfpagelabels,
+	pdfstartview=FitH,
+	linkcolor=black,
+	urlcolor=black,
+	plainpages=false,
+	hypertexnames=false,
+	citecolor=black,
+	linktocpage=false, %Click on numbers in toc, not on actual text to link
+]{hyperref}
+\usepackage{listings}
+\lstset{
+	backgroundcolor=\color{gray},
+	rulecolor=\color{black},
+	frame=shadowbox,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny,
+	keywordstyle=\color{blue},
+	commentstyle=\color{darkgreen},
+	stringstyle=\color{orange},
+	morekeywords=[1]{@},
+	keywordstyle=[1]\color{red},
+	keywordstyle={[2]\color{blue}},
+	keywordstyle=\bfseries\color{purple},
+	breaklines=true,
+%	breakatwhitespace=true
+	tabsize=2,
+	numbers=left,
+	firstnumber=1,
+	stepnumber=1,
+}
+\usepackage[nottoc,notlof,notlot,numbib]{tocbibind}
+\usepackage{xcolor}
+\definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
+\definecolor{orange}{rgb}{1.0,0.4,0.0}
+\definecolor{purple}{rgb}{0.6,0.2,0.9}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+\definecolor{gray}{rgb}{0.96,0.96,0.96}
+% \chead{\raisebox{5pt}{\large{ENTWURF}}}
+\begin{document}
+\title{
+	\vspace{50pt}
+	\texttt{\doctitle}\\
+	\vspace{40pt}
+	\texttt{\doctype}\\
+	\vspace{20pt}
+	\small{\texttt{des Studienganges xy}}\\
+	\small{\texttt{an der DHBW Stuttgart}}\\
+}
+\author{
+	\small{\texttt{von}}\\
+	\texttt{\docauthor}
+	\\ \\ \\ \\
+	\small{\texttt{\today}}
+}
+\date{
+	\vspace*{\fill}
+	\begin{table}[H]\begin{tabular}{@{}p{0.4855\linewidth}p{0.4855\linewidth}@{}}
+	\texttt{Abgabedatum:}						& \texttt{}\\
+	\texttt{Bearbeitungszeitraum:} 				& \texttt{}\\
+	\texttt{Matrikelnummer, Kurs:}				& \texttt{}\\
+	\texttt{Dualer Partner:}					& \texttt{}\\
+	\texttt{Betreuer des dualen Partners:}		& \texttt{}\\
+	\texttt{Betreuer der Dualen Hochschule:}	& \texttt{}
+	\end{tabular}\end{table}
+}
+\maketitle \thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]\node[yshift=-25mm,anchor=north] at (current page.north){\includegraphics[width=100mm]{img/util/logo.png}};\end{tikzpicture}
+\newpage
+\pagenumbering{Roman}\setcounter{page}{1}\vspace*{\fill}
+\section*{\centering{Erklärung}}
+Ich versichere hiermit, dass ich meine \doctype mit dem Thema \textit{\glqq\doctitle\grqq} selbstständig verfasst und keine anderen als die angegebenen Quellen und Hilfsmittel benutzt habe. Aus den benutzten Quellen direkt oder indirekt übernommene Inhalte habe ich als solche kenntlich gemacht. \par
+Diese Arbeit wurde bisher in gleicher oder ähnlicher Form oder auszugsweise noch keiner anderen Prüfungsbehörde vorgelegt und auch nicht veröffentlicht. \par
+Falls beide Fassungen gefordert sind versichere ich zudem, dass die eingereichte elektronische Fassung mit der gedruckten Fassung übereinstimmt. \par
+\vspace{70pt}
+\begin{table}[H]\begin{tabular}{@{}p{0.4\linewidth}P{0.545\linewidth}@{}}
+Ort, den \today     	& \hrulefill\\
+						& \vspace{1pt}\docauthor\\
+\end{tabular}\end{table}
+\vspace*{\fill+50pt}
+\newpage
+\vspace*{\fill}
+\section*{\centering{Zusammenfassung}}
+\blindtext
+\vspace*{\fill}
+\newpage
+% \vspace*{\fill}
+% \section*{\centering{Abstract}}
+% \vspace*{\fill}\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+% \listoftables\newpage
+% \lstlistoflistings\newpage
+% \section*{Abkürzungsverzeichnis}
+% \begin{acronym}[onlyused]
+% \end{acronym}
+\newpage
+\pagenumbering{arabic}\setcounter{page}{1}
+\section{Blindtext}
+\blindtext \par
+\blindtext \par
+\blindtext \cite{TANENBAUM2016}
+\newpage
+\section{Elemente}
+\subsection{Bilder}
+\vspace{10pt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/colors.png}
+    \caption{Farben}
+    \label{fig-adwareinstaller}
+\end{figure}
+\vspace{10pt}
+\subsection{Tabellen}
+\begin{table}[H]\begin{tabular}{@{}|p{0.2\linewidth}|p{0.745\linewidth}|@{}}\hline
+	\textbf{Spalte 1} & \textbf{Spalte 2} \\\hline
+	Inhalt 1 & \blindtext \\\hline
+\end{tabular}\end{table}\vspace{10pt}
+\subsection{Code}
+\vspace{10pt}\begin{lstlisting}[language={C++}, caption={Test mit simulierten Werten (C\raisebox{0.25ex}{++})}, label={source-statistic}]
+	if (globalTestFlag == 1)
+	{ // Test soll durchgefuehrt werden
+			std::cout << "Test has started." << endl;
+			std::ifstream file(testFilePath);
+			if(!file.is_open())
+			{ // Datei mit Werten konnte nicht gefunden werden
+					std::cerr << "File not found" << std::endl;
+					return;
+				}
+			string tp;
+			sal_Int32 i = 0;
+			while(getline(file, tp))
+			{ // Read file line by line and store values
+					ZResourceRecord rec;
+					rec.value = stod(tp);
+					rec.timestamp = time(0)-(10*i);
+					dataHashMap[ZResource::TEST].push_front(rec);
+					i++;
+			}			
+		}
+\end{lstlisting}\vspace{10pt}
+\newpage
+\printbibliography[title={Literatur}]
+\end{document}
